@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+ 
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <!-- #384E69 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/angular-material.min.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/materialize.min.css">
+    <!--STYLES END-->
+
+  </head>
+
+  <body  ng-app="ru.soup">
+  <% if(req.session.auth) { %>
+  <nav class="black" ng-controller="ProjectController">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m3 logo">
+            <a href="/">Повар-панель</a>  
+          </div>
+          <div class="col s12 m9">
+
+            <div class="right nav-wrapper">       
+              <%- partial ('partials/admin.ejs') %>
+            </div>
+    
+          </div>
+        </div>
+        
+      </div>
+      <input type="hidden" ng-model="csrf" ng-init="csrf = '<%= _csrf %>'">
+    </nav>
+  <% } %> 
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col s6">
+      <a href="/"><img src="/images/logo.png"></a>
+      <h1>СУП</h1>
+      <p>Система Управления Проектами</p>
+    </div>
+    <div class="col s6">   
+    <%- body %>
+    </div>
+  </div>
+</div>
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <script type="text/javascript" src="/jst.js"></script>
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/angular-1.min.js"></script>
+    <script src="/js/dependencies/angular-animate.min.js"></script>
+    <script src="/js/dependencies/angular-aria.min.js"></script>
+    <script src="/js/dependencies/angular-material.min.js"></script>
+    <script src="/js/application.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/materialize.min.js"></script>
+    <!--SCRIPTS END-->
+    
+    <script>
+
+    $(document).ready(function(){
+          
+          $(".dropdown-button").dropdown();
+
+          $(".dropdown-link").dropdown();
+          
+          $('.modal-trigger').leanModal();
+
+          $('.datepicker').pickadate({
+              selectMonths: true, 
+              selectYears: 15,
+              format: 'dd.mm.yyyy'
+          });
+
+          $('select').material_select();
+
+    });
+
+    </script>
+  </body>
+</html>
+
+
+

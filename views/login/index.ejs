@@ -1,0 +1,24 @@
+<section>
+  <div><h3>Администрирование</h3></div>
+  <% if (req.session.flash && req.session.flash.error) { %>
+      <div class="alert alert success">
+       <%=req.flash('error')%> 
+     </div>
+  <% } %>
+  <% if(req.session.auth) { %>
+      <div>
+       <p>Вы авторизованы!</p>
+      </div>
+  <% } else {  %>  
+  <form action="/session/create" method="POST">
+    <label for="inputUsername">Имя повара</label>
+    <input type="text" name="username" class="form-control" placeholder="Имя повара">
+
+    <label for="inputPassword">Пароль</label>
+    <input type="password" name="password" class="form-control" placeholder="Пароль">
+
+    <button type="submit" class="btn btn-primary">Войти</button>
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+  </form> 
+  <% } %>
+</section>

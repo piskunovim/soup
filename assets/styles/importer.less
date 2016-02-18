@@ -1,0 +1,149 @@
+/**
+ * importer.less
+ *
+ * By default, new Sails projects are configured to compile this file
+ * from LESS to CSS.  Unlike CSS files, LESS files are not compiled and
+ * included automatically unless they are imported below.
+ *
+ * The LESS files imported below are compiled and included in the order
+ * they are listed.  Mixins, variables, etc. should be imported first
+ * so that they can be accessed by subsequent LESS stylesheets.
+ *
+ * (Just like the rest of the asset pipeline bundled in Sails, you can
+ * always omit, customize, or replace this behavior with SASS, SCSS,
+ * or any other Grunt tasks you like.)
+ */
+
+
+
+// For example:
+//
+// @import 'variables/colors.less';
+// @import 'mixins/foo.less';
+// @import 'mixins/bar.less';
+// @import 'mixins/baz.less';
+//
+// @import 'styleguide.less';
+// @import 'pages/login.less';
+// @import 'pages/signup.less';
+//
+// etc.
+body.front {
+	min-height: 100%;
+	background: url(../images/photo-desktop.jpg) no-repeat;
+	background-size: cover;
+}
+
+.logo {
+	font-weight: 800;
+}
+
+.front-nav {
+	background: none;
+	box-shadow: none;
+	padding: 30px 0 0;
+	line-height: 40px;
+}
+
+.front-nav ul li {
+	border-radius: 4.01px;
+}
+
+h1 {
+	font-weight: 100;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.subtitle {
+	color: white;
+	font-weight: 200;
+	text-indent: .5em;
+}
+
+.hero {
+	padding-top: 120px;
+}
+
+#login-form {
+	
+	.col {
+		padding:10px 20px;
+	}
+
+} 
+
+.content {
+	padding-top: 20px;
+}
+
+.dropdown-content {
+	width: 200px !important;
+}
+
+.modal-form-small {
+	max-width: 400px;
+}
+
+.container {
+	width: 90% !important;
+}
+
+.picker__frame{
+	min-width: 395px !important;
+}
+
+
+md-dialog.fullscreen-dialog {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+md-dialog.dialog-medium {
+	min-width: 800px;
+}
+
+.layout-padding, .layout-padding-gt-sm, .layout-padding-gt-sm>*, .layout-padding-md, .layout-padding-md>*, .layout-padding>*, .layout-padding>.flex, .layout-padding>.flex-gt-sm, .layout-padding>.flex-md {
+    padding: 8px 10px !important;
+}
+
+
+/* For photos uploading */
+
+.drop-box{
+	background: #F8F8F8 none repeat scroll 0% 0%;
+	border: 5px dashed #DDD;
+	width: 95%;
+	text-align: center;
+	padding: 50px 10px;
+	margin: 15px auto 5px;
+}
+
+.drop-box.dragover {
+    border: 5px dashed #3498db;
+    color: #2980b9;
+}
+
+.drop-box.dragover-err {
+    border: 5px dashed #c0392b;
+}
+
+.preview{
+	padding: 15px 15%;
+    text-align: center;
+}
+
+.gallery{
+	padding: 15px 30px;
+}
+
+.md-button.md-button-top-right{
+	position: absolute;
+	top: 0px;
+	right: 20px;
+	line-height: 56px;
+	color: #fff;
+}

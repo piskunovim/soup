@@ -1,0 +1,18 @@
+<h1>{{ project.title }}</h1> 
+<label>Процент выполнения: {{ project.progress }}</label>
+<md-progress-linear md-mode="determinate" value="{{ project.progress }}"></md-progress-linear>
+<div>
+<p><strong>Описание:</strong> {{ project.description }}</p>
+<p><strong>Срок сдачи:</strong> {{ project.completionDate | date:'dd/MM/yyyy'}}</p>
+<p><strong>Этапы выполнения:</strong></p>
+<ul>
+	<li ng-repeat="step in project.stages" ng-class="{'green-text':step.checked}">{{ step.title }} <i class="material-icons" ng-show="step.checked">done</i></li>
+</ul>
+<p><strong>Последнее обновление:</strong> {{ project.updatedAt | date:'dd/MM/yyyy - HH:mm:ss' }}</p>
+<p><strong>Макеты:</strong></p>
+<div layout="row">
+   <md-button ng-href="/" class="black md-button-top-right">
+   Назад 
+   </md-button>
+</div>
+</div>

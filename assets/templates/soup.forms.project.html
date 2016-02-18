@@ -1,0 +1,71 @@
+ <md-dialog aria-label="Настройки проекта" ng-cloak class=" md-inline-form fullscreen-dialog"  >
+ <form>
+  <md-toolbar class="accent">
+  <div class="md-toolbar-tools black">
+    <h2>Настройки проекта</h2>
+    <span flex></span>
+    <md-button class="md-icon-button" ng-click="cancel()">
+    <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+    </md-button>
+</div>
+</md-toolbar>
+
+<md-dialog-content>
+
+  <!-- MAIN FIELDS -->
+  <md-content  layout-padding>
+    <div layout="row">
+    <md-input-container class="md-block">
+      <label>Наименование</label>
+      <input ng-model="project.title">
+    </md-input-container>
+    </div>
+    <div>
+    <md-input-container class="md-block">
+      <label>Описание</label>
+      <input ng-model="project.description">
+    </md-input-container>
+    </div>
+    <div>
+      <p>Сроки сдачи:</p> 
+      <md-datepicker ng-model="project.completionDate"
+      md-placeholder="Ввести дату" >
+      </md-datepicker>
+    </div>
+  </md-content>
+
+  <!-- /MAIN FIELDS -->
+
+  <!-- SECONDARY FIELDS -->
+  <md-content layout-padding>
+  <div>
+      <div layout="row">
+          <p>Этапы реализации: <button class="add" ng-click="addNewStep()">+</button></p>   
+          
+      </div>
+      <div data-ng-repeat="stage in project.stages">  
+        <md-input-container md-no-float  class="md-block">
+              <div layout="row">
+                <md-checkbox ng-model="stage.checked" >       
+                </md-checkbox>
+                <input ng-model="stage.title"/>
+              </div>
+              <button class="remove" ng-show="$last" ng-click="removeStep()">-</button>
+        </md-input-container>
+      </div>
+  </div>
+  </md-content>
+
+
+</md-dialog-content>
+<md-dialog-actions layout="row">
+<span flex></span>
+<md-button ng-click="save()">
+Сохранить
+</md-button>
+<md-button ng-click="cancel()" style="margin-right:20px;">
+Отмена
+</md-button>
+</md-dialog-actions>
+</form>
+</md-dialog>

@@ -1,0 +1,29 @@
+<div ng-controller="ProjectController">
+  <div><h4>Варим с любовью:</h4></div>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Наименование</th>
+      <% if(req.session.auth) { %>
+      <th>Действия</th>
+      <% } %>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr ng-repeat="project in projectList">
+      <td><a href="/watch/{{project.id}}" ng-click="initialProject(project)" class="black-text">{{project.title}} </a></td>
+      <% if(req.session.auth) { %>
+      <td>
+        <a href="#" class="black waves-effect waves-light btn"
+           ng-click="showProjectForm($event, project)">
+            <i class="material-icons">edit</i></a>
+        <a href="#" class="black waves-effect waves-light btn"
+           ng-click="deleteProject(project)"><i class="material-icons">clear</i></a>
+      </td>
+      <% } %>
+    </tr>
+  </tbody>
+  </table>
+  <input type="hidden" ng-model="csrf" ng-init="csrf = '<%= _csrf %>'">
+
+</div>
