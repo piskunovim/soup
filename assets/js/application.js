@@ -171,7 +171,7 @@
       $scope.project =  project || {
          title: null,
          description: null,
-         stages: [{'id':'step1', 'title':'1. Наименование этапа', 'checked':'flase'}]
+         stages: [{'id':'step1', 'title':'1. Наименование этапа', 'checked':false}]
       };
 
       $scope.addNewStep = function() {
